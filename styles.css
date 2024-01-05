@@ -1,0 +1,53 @@
+/* Estilos personalizados aqui */
+
+body {
+    padding-top: 56px; /* Altura da Navbar */
+    font-family: 'Arial', sans-serif; /* Altere a fonte conforme necessário */
+    background-color: #f8f9fa; /* Cor de fundo da página */
+}
+
+.navbar {
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+    background-color: #343a40; /* Cor de fundo da Navbar */
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #000000 !important; /* Cor do texto da Navbar */
+    text-decoration: none !important; /* Remove o sublinhado dos links */
+}
+
+.navbar-nav .nav-link:hover {
+    text-decoration: underline !important; /* Adiciona o sublinhado apenas quando o mouse passa por cima */
+}
+
+.container {
+    margin-top: 20px;
+}
+
+h1, h5, p {
+    color: #343a40;
+}
+
+.card {
+    transition: transform 0.2s;
+    border: 1px solid #dee2e6;
+    border-radius: 10px; 
+    overflow: hidden; 
+    background-color: #ffffff; 
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
+}
+
+.card-title {
+    color: #343a40; 
+}
+
+.custom-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover; 
+}
