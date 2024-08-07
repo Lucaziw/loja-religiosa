@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalhes do Produto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-12" id="product-detail">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const newsId = params.get('id');
+
+    if (newsId) {
+      const baseUrl = "http://localhost:3000/posts";
+
+      fetch(`${baseUrl}?news=${newsId}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.length > 0) {
+            const product = data[0];
+            const container = document.querySelector("#product-detail");
+            container.innerHTML = `
+              <div class="card" style="width: 18rem;">
+                <img src="${product.src}" class="card-img-top" alt="${product['card-title']}" />
+                <div class="card-body">
+                  <h5 class="card-title">${product['card-title']}</h5>
+                  <p class="card-text">${product['card-text']}</p>
+                </div>
+              </div>
+            `;
+          } else {
+            document.querySelector("#product-detail").innerHTML = '<p>Produto não encontrado.</p>';
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao buscar detalhes:', error);
+          document.querySelector("#product-detail").innerHTML = '<p>Erro ao carregar detalhes do produto.</p>';
+        });
+    } else {
+      document.querySelector("#product-detail").innerHTML = '<p>ID do produto não fornecido.</p>';
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

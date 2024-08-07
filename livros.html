@@ -18,7 +18,6 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="index.html">Página Inicial</a></li>
-                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Produtos
@@ -29,14 +28,12 @@
                         <li><a class="dropdown-item" href="tercos.html">Terços</a></li>
                     </ul>
                 </li>
-                
                 <li class="nav-item"><a class="nav-link" href="carrinho.html">Carrinho</a></li>
                 <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
             </ul>
         </div>
     </div>
 </nav>
-
 
 <div class="container mt-4">
     <h1 class="mb-4">Livros</h1>
@@ -55,11 +52,8 @@
         </div>
     </div>
 
- 
-    
     <div class="row">
-
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4 produto" data-preco="19.99">
             <a href="produtos/paginas/livros/detalhar_sao_miguel.html" class="card-link">
                 <div class="card">
                     <img src="produtos/images/livros/sao_miguel.jpg" class="card-img-top custom-img" alt="Produto 1">
@@ -72,35 +66,71 @@
             </a>
         </div>
 
-        <!-- Pulseira 2 -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <a href="produtos/paginas/livros/detalhar_sao_bento.html" class="card-link">
+        <div class="col-md-4 mb-4 produto" data-preco="14.99">
+            <a href="produtos/paginas/livros/detalhar_sao_bento.html" class="card-link">
+                <div class="card">
                     <img src="produtos/images/livros/sao_bento.jpg" class="card-img-top custom-img" alt="Produto 2">
                     <div class="card-body">
                         <h5 class="card-title">Livro de São Bento</h5>
                         <p class="card-text">Descrição breve do produto.</p>
                         <p class="card-text">R$ 14,99</p>
                     </div>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
 
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <a href="produtos/paginas//livros/detalhar_santa_luzia.html" class="card-link">
+        <div class="col-md-4 mb-4 produto" data-preco="19.99">
+            <a href="produtos/paginas/livros/detalhar_santa_luzia.html" class="card-link">
+                <div class="card">
                     <img src="produtos/images/livros/santa_luzia.jpg" class="card-img-top custom-img" alt="Produto 3">
                     <div class="card-body">
                         <h5 class="card-title">Livro de Santa Luzia</h5>
                         <p class="card-text">Descrição breve do produto.</p>
                         <p class="card-text">R$ 19,99</p>
                     </div>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
     </div>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const ordenacao = document.getElementById('ordenacao');
+    const filtro = document.getElementById('filtro');
+    const produtos = document.querySelectorAll('.produto');
+
+    function aplicarFiltro() {
+        const valorFiltro = filtro.value.toLowerCase();
+        const valorOrdenacao = ordenacao.value;
+
+        produtos.forEach(produto => {
+            const preco = parseFloat(produto.getAttribute('data-preco'));
+            const precoTexto = produto.querySelector('.card-text').textContent;
+            const visivel = precoTexto.includes(valorFiltro) || valorFiltro === '';
+
+            if (visivel) {
+                produto.style.display = '';
+            } else {
+                produto.style.display = 'none';
+            }
+        });
+
+        if (valorOrdenacao === 'maior-preco') {
+            Array.from(produtos).sort((a, b) => parseFloat(b.getAttribute('data-preco')) - parseFloat(a.getAttribute('data-preco')))
+                .forEach(produto => produto.parentNode.appendChild(produto));
+        } else if (valorOrdenacao === 'menor-preco') {
+            Array.from(produtos).sort((a, b) => parseFloat(a.getAttribute('data-preco')) - parseFloat(b.getAttribute('data-preco')))
+                .forEach(produto => produto.parentNode.appendChild(produto));
+        }
+    }
+
+    filtro.addEventListener('input', aplicarFiltro);
+    ordenacao.addEventListener('change', aplicarFiltro);
+
+    aplicarFiltro(); // Aplica o filtro inicial
+});
+</script>
 
 </body>
 </html>

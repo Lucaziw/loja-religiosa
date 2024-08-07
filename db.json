@@ -1,0 +1,68 @@
+{
+    "posts": [
+      {
+        "src": "produtos/images/tercos/terco_sao_bento.jpg",
+        "href": "produtos/paginas/tercos/detalhar_sao_bento.html",
+        "card-title": "Terço de São Bento",
+        "card-text": "Lindo Terço de São Bento",
+        "news": "1"
+      },
+      {
+        "src": "produtos/images/tercos/terco_sao_miguel.png",
+        "href": "produtos/paginas/tercos/detalhar_sao_miguel.html",
+        "card-title": "Terço de São Miguel",
+        "card-text": "Lindo Terço de São Miguel",
+        "news": "2"
+      },
+      {
+        "src": "produtos/images/tercos/terco_santa_luzia.webp",
+        "href": "produtos/paginas/tercos/detalhar_santa_luzia.html",
+        "card-title": "Terço de Santa Luzia",
+        "card-text": "Lindo Terço de Santa Luzia",
+        "news": "3"
+      },
+      {
+        "src": "produtos/images/pulseiras/pulseira_sao_bento.jpg",
+        "href": "produtos/paginas/pulseiras/detalhar_sao_bento.html",
+        "card-title": "Pulseira de São Bento",
+        "card-text": "Linda pulseira de São Bento",
+        "news": "4"
+      },
+      {
+        "src": "produtos/images/pulseiras/pulseira_sao_miguel.webp",
+        "href": "produtos/paginas/pulseiras/detalhar_sao_miguel.html",
+        "card-title": "Pulseira de São Miguel",
+        "card-text": "Linda pulseira de São Miguel",
+        "news": "5"
+      },
+      {
+        "src": "produtos/images/pulseiras/pulseira_santa_luzia.webp",
+        "href": "produtos/paginas/pulseiras/detalhar_santa_luzia.html",
+        "card-title": "Pulseira de Santa Luzia",
+        "card-text": "Linda pulseira de Santa Luzia",
+        "news": "6"
+      },
+      {
+        "src": "produtos/images/livros/sao_bento.jpg",
+        "href": "produtos/paginas/livros/detalhar_sao_bento.html",
+        "card-title": "Livro de São Bento",
+        "card-text": "Ótimo Livro de São Bento",
+        "news": "7"
+      },
+      {
+        "src": "produtos/images/livros/sao_miguel.jpg",
+        "href": "produtos/paginas/livros/detalhar_sao_miguel.html",
+        "card-title": "Livro de São Miguel",
+        "card-text": "Ótimo Livro de São Miguel",
+        "news": "8"
+      },
+      {
+        "src": "produtos/images/livros/santa_luzia.jpg",
+        "href": "produtos/paginas/livros/detalhar_santa_luzia.html",
+        "card-title": "Livro de Santa Luzia",
+        "card-text": "Ótimo Livro de Santa Luzia",
+        "news": "9"
+      }
+    ]
+  }
+  

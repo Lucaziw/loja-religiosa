@@ -62,94 +62,36 @@
         </div>
       </div>
     </nav>
-
-    <div class="container mt-4">
-      <h1 class="mb-4">Bem-vindo à Minha Loja Religiosa</h1>
-      <p>Encontre os melhores artigos religiosos para a sua fé.</p>
-
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <componente-novo
-            src="produtos/images/tercos/terco_sao_bento.jpg"
-            href="produtos/paginas/tercos/detalhar_sao_bento.html"
-            card-title="Terço de São Bento"
-            card-text="Lindo Terço de São Bento"
-          />
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <componente-novo
-            src="produtos/images/tercos/terco_sao_miguel.png"
-            href="produtos/paginas/tercos/detalhar_sao_miguel.html"
-            card-title="Terço de São Miguel"
-            card-text="Lindo Terço de São Miguel"
-          />
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <componente-novo
-            src="produtos/images/tercos/terco_santa_luzia.webp"
-            href="produtos/paginas/tercos/detalhar_santa_luzia.html"
-            card-title="Terço de Santa Luzia"
-            card-text="Lindo Terço de Santa Luzia"
-          />
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <componente-novo
-            src="produtos/images/pulseiras/pulseira_sao_bento.jpg"
-            href="produtos/paginas/pulseiras/detalhar_sao_bento.html"
-            card-title="Pulseira de São Bento"
-            card-text="Linda pulseira de São Bento"
-          />
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <componente-novo
-            src="produtos/images/pulseiras/pulseira_sao_miguel.webp"
-            href="produtos/paginas/pulseiras/detalhar_sao_miguel.html"
-            card-title="Pulseira de São Miguel"
-            card-text="Linda pulseira de São Miguel"
-          />
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <componente-novo
-            src="produtos/images/pulseiras/pulseira_santa_luzia.webp"
-            href="produtos/paginas/pulseiras/detalhar_santa_luzia.html"
-            card-title="Pulseira de Santa Luzia"
-            card-text="Linda pulseira de Santa Luzia"
-          />
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <componente-novo
-            src="produtos/images/livros/sao_bento.jpg"
-            href="produtos/paginas/livros/detalhar_sao_bento.html"
-            card-title="Livro de São Bento"
-            card-text="Otimo Livro de São Bento"
-          />
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <componente-novo
-            src="produtos/images/livros/sao_miguel.jpg"
-            href="produtos/paginas/livros/detalhar_sao_miguel.html"
-            card-title="Livro de São Miguel"
-            card-text="Otimo Livro de São Miguel"
-          />
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <componente-novo
-            src="produtos/images/livros/santa_luzia.jpg"
-            href="produtos/paginas/livros/detalhar_santa_luzia.html"
-            card-title="Livro de Santa Luzia"
-            card-text="Otimo Livro de Santa Luzia"
-          />
-        </div>
-      </div>
+    <div class="container" id="product-panel">
+      
     </div>
+
+    <script>
+      const container = document.querySelector("#product-panel");
+      let component = "";
+      const baseUrl = "http://localhost:3000";
+    
+      fetch(`${baseUrl}/posts`)
+        .then(res => res.json())
+        .then(dataJSON => renderizar(dataJSON))
+        .catch(error => console.error('Erro ao buscar dados:', error));
+    
+      function renderizar(posts) {
+        component = posts.map(post => `
+          <div class="col-md-4 mb-4">
+            <componente-novo
+              src="${post.src}"
+              href="${post.href}"
+              card-title="${post['card-title']}"
+              card-text="${post['card-text']}"
+              news="${post['news']}"
+            ></componente-novo>
+          </div>
+        `).join('');
+        container.innerHTML = `<div class="row">${component}</div>`;
+      }
+    </script>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
